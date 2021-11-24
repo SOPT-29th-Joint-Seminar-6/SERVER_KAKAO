@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-router.use('/channel', require('./channel'));
+router.get('/:id', require('./channelGET'));
 
 module.exports = router;
