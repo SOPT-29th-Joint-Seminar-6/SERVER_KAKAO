@@ -22,10 +22,22 @@ const addChannel = async (client, userId, channelId) => {
     ($1, $2)
     RETURNING *
     `,
-    [userId, channelId],
+    [userId, channelId]
   );
-  return convertSnakeToCamel.keysToCamel(rows);
+  return convertSnakeToCamel.keysToCamel(rows[0]);
 };
+
+const viewAddedChannels = async (client, userId) => {
+  const { rows } = await client.query(
+    `
+    SELECT * FROM addchannel a
+      JOIN channel c ON a.channel_id = c.id
+      WHERE user_id = $1
+    `,
+    [userId]
+  )
+  return convertSnakeToCamel.keysToCamel( rows );
+}
 
 const allChannel = async(client) => {
   const { rows } = await client.query(
@@ -41,12 +53,24 @@ const existChannel = async(client, id)=>{
   const { rows } = await client.query(
     `
     SELECT COUNT(*) AS cnt
-    FROM channel
-    WHERE id = $1
+    FROM addchannel a
+    WHERE channel_id = $1
     `,
     [id]
+  );
+  return rows;
+}
+
+const alreadyAddedChannel = async(client, channelId)=>{
+  const { rows } = await client.query(
+    `
+    SELECT COUNT(*) AS cnt
+    FROM addchannel
+    WHERE channel_id = $1
+    `,
+    [channelId]
   );
   return convertSnakeToCamel.keysToCamel( rows);
 }
 
-module.exports =  {getExactChannel, addChannel, allChannel, existChannel};
+module.exports =  {getExactChannel, addChannel, allChannel, existChannel, alreadyAddedChannel,viewAddedChannels};

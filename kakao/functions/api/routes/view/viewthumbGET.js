@@ -4,7 +4,7 @@ const util = require('../../../lib/util');
 const statusCode = require('../../../constants/statusCode');
 const responseMessage = require('../../../constants/responseMessage');
 const db = require('../../../db/db');
-const { viewsDB } = require('../../../db');
+const { viewDB } = require('../../../db');
 
 module.exports = async (req, res) => {
   let client;
@@ -16,7 +16,7 @@ module.exports = async (req, res) => {
     client = await db.connect(req);
 
     // 빌려온 connection을 사용해 우리가 db/[파일].js에서 미리 정의한 SQL 쿼리문을 날려줍니다.
-    const videos = await viewsDB.getAllvideos(client);
+    const videos = await viewDB.getAllVideos(client);
     if(!videos) return res.status(statusCode.NOT_FOUND).send(util.fail(statusCode.NOT_FOUND, responseMessage.NO_VIDEOPOST))
 
     // 성공적으로 users를 가져왔다면, response를 보내줍니다.
