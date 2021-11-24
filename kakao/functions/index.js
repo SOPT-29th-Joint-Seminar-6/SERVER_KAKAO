@@ -1,5 +1,5 @@
 const admin =require('firebase-admin');
-const serviceAccount = require('wesopt29-164ba-firebase-adminsdk-uox93-3ee5319dc6');
+const serviceAccount = require('../functions/wesopt29-164ba-firebase-adminsdk-uox93-3ee5319dc6.json');
 const dotenv =require('dotenv');
 
 dotenv.config();
@@ -15,5 +15,5 @@ if(admin.apps.length === 0){
 }
 
 module.exports = {
-    api : require('/api'),
+    api : require('../functions/api'),
 };
