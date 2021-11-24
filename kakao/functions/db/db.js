@@ -9,8 +9,6 @@ const dbConfig = require('../config/dbConfig');
 
 dotenv.config(); //dotenv를 사용하기 위한것.
 
-
-
 // NODE_ENV라는 글로벌 환경변수를 사용해서, 현재 환경이 어떤 '모드'인지 판별해줍시다.
 //local일때 development
 let devMode = process.env.NODE_ENV === 'development';
