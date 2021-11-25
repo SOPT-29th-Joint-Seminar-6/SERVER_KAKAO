@@ -23,11 +23,13 @@ module.exports = async (req, res) => {
 
     // 빌려온 connection을 사용해 우리가 db/[파일].js에서 미리 정의한 SQL 쿼리문을 날려줍니다.
     const channels = await addDB.allChannel(client);
-    const channelIds = [... new Set(channels.filter(Boolean).map((s)=>s.id))];
+    const channelIds = [... new Set(channels.filter(Boolean).map((o)=>o.id))];
+    console.log(channelIds);
     const articles = await viewDB.getArticleByChannelIds(client,channelIds);
+    console.log(articles);
 
     for(let i=0;i<channels.length;i++){
-        channels.articles = _.filter(articles,(o)=>o.channel_Id===channels[i].id)
+        channels[i].articles = _.filter(articles,(o)=>o.channelId === channels[i].id)
     }
     if(!channels) return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST,responseMessage.NO_EXIST_CHANNEL))
     // 성공적으로 users를 가져왔다면, response를 보내줍니다.
