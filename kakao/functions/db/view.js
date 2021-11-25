@@ -21,4 +21,15 @@ const getArticleByChannelIds = async (client,channelIds) =>{
     );
     return convertSnakeToCamel.keysToCamel(rows);
 }
-module.exports = {getAllVideos,getArticleByChannelIds}
+
+const getVideoByVideoChannelIds = async (client,videoChannelIds) =>{
+    if(videoChannelIds.length <1 ) return []
+    const { rows } = await client.query(
+        `SELECT * FROM video v
+        WHERE videochannel_id IN (${videoChannelIds.join()})
+        AND is_deleted = FALSE
+        `,
+    );
+    return convertSnakeToCamel.keysToCamel(rows);
+}
+module.exports = {getAllVideos,getArticleByChannelIds,getVideoByVideoChannelIds}
