@@ -23,15 +23,15 @@ module.exports = async (req, res) => {
 
     // 빌려온 connection을 사용해 우리가 db/[파일].js에서 미리 정의한 SQL 쿼리문을 날려줍니다.
     const channels = await addDB.allChannel(client);
-    const channelIds = [... new Set(channels.filter(Boolean).map((s)=>s.id))];
+    const channelIds = [...new Set(channels.filter(Boolean).map((s)=>s.id))];
     const articles = await viewDB.getArticleByChannelIds(client,channelIds);
 
     for(let i=0;i<channels.length;i++){
-        channels.articles = _.filter(articles,(o)=>o.channel_Id===channels[i].id)
+        channels[i].articles = _.filter(articles,(o)=>o.channelId===channels[i].id)
     }
     if(!channels) return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST,responseMessage.NO_EXIST_CHANNEL))
     // 성공적으로 users를 가져왔다면, response를 보내줍니다.
-    res.status(statusCode.OK).send(util.success(statusCode.OK, responseMessage.READ_ALL_ARTICLE_SUCCESS, {channels,articles}));
+    res.status(statusCode.OK).send(util.success(statusCode.OK, responseMessage.READ_ALL_ARTICLE_SUCCESS, channels));
     
     // try문 안에서 에러가 발생했을 시 catch문으로 error객체가 넘어옵니다.
     // 이 error 객체를 콘솔에 찍어서 어디에 문제가 있는지 알아냅니다.

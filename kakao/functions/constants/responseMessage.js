@@ -37,6 +37,7 @@ module.exports = {
   UPDATE_ONE_VIDEOPOST_SUCCESS: '비디오포스트 수정 성공',
   DELETE_ONE_VIDEOPOST_SUCCESS: '비디오포스트 삭제 성공',
   NO_VIDEOPOST: '존재하지 않는 비디오포스트입니다.',
+  NO_VIDEOCHANNEL_EXIST: '채널이 존재하지 않습니다.',
 
   // 서버 내 오류
   INTERNAL_SERVER_ERROR: '서버 내 오류',
