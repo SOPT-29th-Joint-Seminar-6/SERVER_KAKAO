@@ -27,7 +27,9 @@ module.exports = async (req, res) => {
     const articles = await viewDB.getArticleByChannelIds(client,channelIds);
 
     for(let i=0;i<channels.length;i++){
+
         channels[i].articles = _.filter(articles,(o)=>o.channelId===channels[i].id)
+
     }
     if(!channels) return res.status(statusCode.BAD_REQUEST).send(util.fail(statusCode.BAD_REQUEST,responseMessage.NO_EXIST_CHANNEL))
     // 성공적으로 users를 가져왔다면, response를 보내줍니다.
