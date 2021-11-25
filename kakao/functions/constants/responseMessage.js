@@ -51,5 +51,12 @@ module.exports = {
   READ_ONE_CHANNEL_SUCCESS: '채널 조회 성공',
   ALREADY_ADDED_CHANNEL: '이미 추가된 채널입니다',
   ADD_CHANNEL_SUCCESS: '플러스 채널 추가 성공',
-  VIEW_ADDED_CHANNELS_SUCCESS: '플러스 채널 목록 조회 성공'
+  VIEW_ADDED_CHANNELS_SUCCESS: '플러스 채널 목록 조회 성공',
+
+  // 기사
+  NO_EXIST_ARTICLE: '존재하지 않는 기사입니다.',
+  READ_ALL_ARTICLE_SUCCESS: '기사 조회 성공',
+  ALREADY_ADDED_ARTICLE: '이미 추가된 기사입니다',
+  ADD_ARTICLE_SUCCESS: '플러스 기사 추가 성공',
+  VIEW_ADDED_ARTICLE_SUCCESS: '플러스 기사 목록 조회 성공'
 };
