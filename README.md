@@ -68,7 +68,7 @@
 
 #### addchannel
 
-<img src="https://user-images.githubusercontent.com/69101054/143474682-f813392f-206f-4f3c-9d9d-8c7171c98825.png">
+<img src="https://user-images.githubusercontent.com/69101054/143479451-38bc9dcd-2fa9-403c-8d83-481864787a04.png">
 
 #### article
 
@@ -78,7 +78,7 @@
 
 <img src="https://user-images.githubusercontent.com/69101054/143474324-494ffd70-1749-4d5e-a1c3-7b0db5890066.png">
 
-#### userK
+#### user
 
 <img src="https://user-images.githubusercontent.com/69101054/143474206-fb3a39f1-d9e2-42a2-9bb8-3211ae81034d.png">
 
