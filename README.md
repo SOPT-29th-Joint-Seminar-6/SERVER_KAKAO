@@ -88,8 +88,7 @@
 
 #### videochannel
 
-<img src="https://user-images.githubusercontent.com/69101054/143473924-5cb4a0f1-da93-4b1a-9e87-ec8f36fd5985.png
-">
+<img src="https://user-images.githubusercontent.com/69101054/143473924-5cb4a0f1-da93-4b1a-9e87-ec8f36fd5985.png">
 
 <br>
 <br>
