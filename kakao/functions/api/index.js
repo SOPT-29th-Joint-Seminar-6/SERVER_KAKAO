@@ -19,7 +19,7 @@ app.use(cors());
 // process.env.NODE_ENV는 배포된 서버에서는 'production'으로, 로컬에서 돌아가는 서버에서는 'development'로 고정
 if(process.env.NODE_ENV == "production"){
     app.use(hpp());
-    app.use(helmet);
+    app.use(helmet());
 }
 
 //request에 담긴 정보를 json 형태로 파싱하기 위한 미들웨어들
